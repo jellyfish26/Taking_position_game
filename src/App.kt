@@ -26,31 +26,47 @@ class App : Application() {
 
     //Display a dialog for generating a square.
     private fun initialization() {
-        var create_square = TextInputDialog()
-        create_square.headerText = null
-        create_square.title = "Crate square"
-        create_square.contentText = "Please enter the size of the square to be generated."
+        // Input dialog display
+        var result_square = Dialog.InputDialog(null, "Create square", "Please enter the size of the square to be generated.(5 to 12)")
 
-        var result_square = create_square.showAndWait()
-        var square: String? = null.toString()
-        result_square.ifPresent { square = create_square.result }
+        if (result_square == null) exitProcess(0) // End of program
 
         // judge alert
-        if (square == "") {
-            var alert_dialog = Alert(Alert.AlertType.CONFIRMATION)
-            alert_dialog.headerText = null
-            alert_dialog.title = "Warning"
-            alert_dialog.contentText = "Please enter a number (5 to 13)"
+        if (result_square == "") {
+            //warning dialog display
+            var warning = Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number (5 to 12)")
 
-            var alert_result = alert_dialog.showAndWait()
-            if (alert_result.get() == ButtonType.OK) {
+            if (warning == ButtonType.OK) {
                 // return
                 initialization()
             } else {
                 exitProcess(0)
             }
         } else {
-            Log.main("make_square")
+            var number: Int? = 0
+            try {
+                number = result_square?.toInt()
+            } catch (e: NumberFormatException) {
+                var number_warning = Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number (5 to 12)")
+
+                if (number_warning == ButtonType.OK) {
+                    // return
+                    initialization()
+                } else {
+                    exitProcess(0)
+                }
+            }
+
+            if (!(number!! >= 5 && number!! <= 12)) {
+                var out_range = Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number between 5 and 13")
+
+                if (out_range == ButtonType.OK) {
+                    // return
+                    initialization()
+                } else {
+                    exitProcess(0)
+                }
+            }
         }
     }
 }
