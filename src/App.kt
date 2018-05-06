@@ -20,17 +20,35 @@ class App : Application() {
 
         //primaryStage?.show()
 
-        Log.main("launch")
-        var vertical = initialization(primaryStage,"Please enter the number of vertical squares. (5 to 12)")
-        var width = initialization(primaryStage, "Please enter the number of width squares. (5 to 12)")
+        setting(primaryStage)
+    }
 
-        Mass_creation.create(vertical, width, primaryStage)
+    private fun setting(this_stage: Stage?) {
+
+        Log.main("launch")
+        var vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
+        //check
+        while (true) {
+            if(vertical == 0) {
+                vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
+            } else break
+        }
+        var width = initialization("Please enter the number of width squares. (5 to 12)")
+
+        //check
+        while (true) {
+            if(vertical == 0) {
+                vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
+            } else break
+        }
+
+        Mass_creation.create(vertical, width, this_stage)
     }
 
     //Display a dialog for generating a square.
-    private fun initialization(this_stage: Stage?, content: String?): Int {
+    private fun initialization(content: String?): Int {
 
-        var number = 0
+        var number = -1
 
         // Input dialog display
         var resultsquare = Dialog.InputDialog(null, "Create square", content)
@@ -39,43 +57,18 @@ class App : Application() {
 
         try {
             number = resultsquare.toInt()
-        } catch (e: NumberFormatException) {
-            var numberwarning = Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number (5 to 12)")
 
-            if (numberwarning == ButtonType.OK) {
-                // return
-                start(this_stage)
-            } else {
-                Platform.exit()
-            }
-        } finally {
             if (!(number >= 5 && number <= 12)) {
-                var outrange = Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number between 5 and 13")
-
-                if (outrange == ButtonType.OK) {
-                    // return
-                    start(this_stage)
-                } else {
-                    Platform.exit()
-                }
+                Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number between 5 and 13")
+                number = 0
             }
-        }
 
-        // judge alerthorizontal
-        if (resultsquare == "") {
-            //warning dialog display
-            var warning = Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number (5 to 12)")
-
-            if (warning == ButtonType.OK) {
-                // return
-                start(this_stage)
-            } else {
-                Platform.exit()
-            }
-        } else {
+        } catch (e: NumberFormatException) {
+            Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number (5 to 12)")
+            number = 0
         }
 
         if(Debug.developer) println(number)
-        return number
+        return number //number == 0, false
     }
 }
