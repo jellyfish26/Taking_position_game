@@ -27,12 +27,10 @@ class App : Application() {
     }
 
     private fun createContent(): Parent {
-        val root = Pane()
-        root.setPrefSize(750.0, 750.0)
+        val pane = Pane()
+        pane.setPrefSize(750.0, 750.0)
 
         setting()
-
-        var c = 'a'
         val tiles = ArrayList<Tile>()
         for(ver_length in 0 until Value.vertical) {
             for(wid_length in 0 until Value.width) {
@@ -42,14 +40,14 @@ class App : Application() {
 
         row = Value.width
 
-        for (i in tiles.indices) {
-            val tile = tiles[i]
-            tile.translateX = (50 * (i % row)).toDouble()
-            tile.translateY = (50 * (i / row)).toDouble()
-            root.children.add(tile)
+        for (size in tiles.indices) {
+            val tile = tiles[size]
+            tile.translateX = (50 * (size % row)).toDouble()
+            tile.translateY = (50 * (size / row)).toDouble()
+            pane.children.add(tile)
         }
 
-        return root
+        return pane
     }
 
     private fun setting() {
@@ -103,9 +101,6 @@ class App : Application() {
 
     private inner class Tile(value: String) : StackPane() {
         private val text = Text()
-
-        val isOpen: Boolean
-            get() = text.opacity == 1.0
 
         init {
             val border = Rectangle(50.0, 50.0)
