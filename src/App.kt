@@ -1,48 +1,77 @@
+import java.util.ArrayList
+
 import javafx.application.Application
-import javafx.application.Platform
-import javafx.fxml.FXMLLoader
+import javafx.event.EventHandler
+import javafx.geometry.Pos
 import javafx.scene.Parent
 import javafx.scene.Scene
-import javafx.scene.control.*
+import javafx.scene.control.Alert
+import javafx.scene.input.MouseEvent
+import javafx.scene.layout.Pane
+import javafx.scene.layout.StackPane
+import javafx.scene.paint.Color
+import javafx.scene.shape.Rectangle
+import javafx.scene.text.Font
+import javafx.scene.text.Text
 import javafx.stage.Stage
-import java.util.*
 import kotlin.system.exitProcess
 
-//gui class
 class App : Application() {
+    private var row = 0
 
-    //start GUI
-    override fun start(primaryStage: Stage?) {
-        primaryStage?.title = "Taking position game"
-
-        //scene (deleted)
-        //primaryStage?.scene = Scene(FXMLLoader.load<Parent>(this.javaClass.getResource("App.fxml")))
-
-        //primaryStage?.show()
-
-        setting(primaryStage)
+    @Throws(Exception::class)
+    override fun start(primaryStage: Stage) {
+        primaryStage.title = "Taking position game"
+        primaryStage.scene = Scene(createContent())
+        primaryStage.show()
     }
 
-    private fun setting(this_stage: Stage?) {
+    private fun createContent(): Parent {
+        val root = Pane()
+        root.setPrefSize(750.0, 750.0)
 
-        Log.main("launch")
-        var vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
-        //check
-        while (true) {
-            if(vertical == 0) {
-                vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
-            } else break
-        }
-        var width = initialization("Please enter the number of width squares. (5 to 12)")
+        setting()
 
-        //check
-        while (true) {
-            if(vertical == 0) {
-                vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
-            } else break
+        var c = 'a'
+        val tiles = ArrayList<Tile>()
+        for(ver_length in 0 until Value.vertical) {
+            for(wid_length in 0 until Value.width) {
+                tiles.add(Tile(Value.point[ver_length][wid_length].toString()))
+            }
         }
 
-        Mass_creation.create(vertical, width, this_stage)
+        row = Value.width
+
+        for (i in tiles.indices) {
+            val tile = tiles[i]
+            tile.translateX = (50 * (i % row)).toDouble()
+            tile.translateY = (50 * (i / row)).toDouble()
+            root.children.add(tile)
+        }
+
+        return root
+    }
+
+    private fun setting() {
+
+        if(Debug.developer) println("Lunch App")
+        Value.vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
+        //check
+        while (true) {
+            if(Value.vertical == 0) {
+                Value.vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
+            } else break
+        }
+        Value.width = initialization("Please enter the number of width squares. (5 to 12)")
+
+        //check
+        while (true) {
+            if(Value.vertical == 0) {
+                Value.vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
+            } else break
+        }
+
+        Mass_creation.create(Value.vertical, Value.width)
     }
 
     //Display a dialog for generating a square.
@@ -70,5 +99,31 @@ class App : Application() {
 
         if(Debug.developer) println(number)
         return number //number == 0, false
+    }
+
+    private inner class Tile(value: String) : StackPane() {
+        private val text = Text()
+
+        val isOpen: Boolean
+            get() = text.opacity == 1.0
+
+        init {
+            val border = Rectangle(50.0, 50.0)
+            border.fill = null
+            border.stroke = Color.BLACK
+
+            text.text = value
+            text.font = Font.font(25.0)
+
+            alignment = Pos.CENTER
+            children.addAll(border, text)
+
+            // onMouseClicked = EventHandler<MouseEvent>  { this.handleMouseClick(it) }
+            onMouseClicked = EventHandler { this.handleMouseClick(it) }
+        }
+
+        fun handleMouseClick(event: MouseEvent) {
+            if(Debug.developer) println(event)
+        }
     }
 }
