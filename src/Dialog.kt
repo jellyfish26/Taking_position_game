@@ -8,27 +8,27 @@ object Dialog {
 
     // input dialog function
     fun InputDialog(header: String?, title: String?, Content: String?): String? {
-        val input_dialog = TextInputDialog()
-        input_dialog.headerText = header
-        input_dialog.title = title
-        input_dialog.contentText = Content
-        var output_result = input_dialog.showAndWait()
+        val inputdialog = TextInputDialog()
+        inputdialog.headerText = header
+        inputdialog.title = title
+        inputdialog.contentText = Content
+        var outputresult = inputdialog.showAndWait()
         var result: String? = null
 
-        output_result.ifPresent { result = input_dialog.result }
+        outputresult.ifPresent { result = inputdialog.result }
 
         return result
     }
 
     fun AlertDialog(type: Alert.AlertType, header: String?, title: String?, Content: String?): ButtonType? {
-        val alert_dialog = Alert(type)
-        alert_dialog.headerText = header
-        alert_dialog.title = title
-        alert_dialog.contentText = Content
-        var alert_result = alert_dialog.showAndWait()
+        val alertdialog = Alert(type)
+        alertdialog.headerText = header
+        alertdialog.title = title
+        alertdialog.contentText = Content
+        var alertresult = alertdialog.showAndWait()
         var result: ButtonType? = null
 
-        alert_result.ifPresent { result = alert_dialog.result }
+        alertresult.ifPresent { result = alertdialog.result }
 
         return result
     }
