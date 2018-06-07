@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Taking_position_game:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="491b3d15-ce9f-492e-89eb-c8e766256ecd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Set.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mass_creation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mass_creation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Value.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/Value.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="791">
-              <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
+            <state relative-caret-position="612">
+              <caret line="89" column="30" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
               <folding>
                 <element signature="e#0#505#0" expanded="true" />
               </folding>
@@ -29,11 +33,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mass_creation.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Value.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Value.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Mass_creation.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Mass_creation.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+            <state relative-caret-position="105">
+              <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -63,10 +76,10 @@
         <option value="$PROJECT_DIR$/src/Main.kt" />
         <option value="$PROJECT_DIR$/src/Panel_generation.kt" />
         <option value="$PROJECT_DIR$/src/Debug.kt" />
-        <option value="$PROJECT_DIR$/src/Value.kt" />
-        <option value="$PROJECT_DIR$/src/App.kt" />
         <option value="$PROJECT_DIR$/src/Set.kt" />
         <option value="$PROJECT_DIR$/src/Mass_creation.kt" />
+        <option value="$PROJECT_DIR$/src/Value.kt" />
+        <option value="$PROJECT_DIR$/src/App.kt" />
       </list>
     </option>
   </component>
@@ -87,8 +100,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -105,7 +119,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -113,7 +126,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -194,12 +210,17 @@
       <workItem from="1526391167356" duration="10000" />
       <workItem from="1526392012655" duration="423000" />
       <workItem from="1526392761826" duration="664000" />
-      <workItem from="1526485466002" duration="2132000" />
+      <workItem from="1526485466002" duration="3287000" />
+      <workItem from="1526490521708" duration="32000" />
+      <workItem from="1526549092970" duration="5000" />
+      <workItem from="1526804872188" duration="615000" />
+      <workItem from="1527237588870" duration="87000" />
+      <workItem from="1528369467794" duration="2358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85048000" />
+    <option name="totallyTimeSpent" value="89300000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -214,20 +235,20 @@
       <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="16" />
       <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.17109458" />
+      <window_info anchor="bottom" id="Version Control" order="16" />
       <window_info anchor="bottom" id="Terminal" order="14" weight="0.32837406" />
       <window_info id="Capture Tool" order="12" />
       <window_info id="Designer" order="9" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.10989583" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.14791666" />
       <window_info anchor="right" id="Database" order="12" />
       <window_info id="Learn" order="10" />
       <window_info id="Structure" order="4" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="13" />
       <window_info anchor="right" id="Theme Preview" order="10" />
-      <window_info id="Favorites" order="14" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.3995749" />
+      <window_info id="Favorites" order="14" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -237,34 +258,34 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17109458" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1171875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17109458" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="6" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info id="Learn" order="3" />
-      <window_info anchor="right" id="Database" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32837406" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32837406" />
       <window_info anchor="right" id="Maven Projects" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1171875" />
+      <window_info id="Favorites" order="7" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,13 +565,6 @@
     <entry file="file://$PROJECT_DIR$/src/Data.kt" />
     <entry file="file://$PROJECT_DIR$/src/Log.kt" />
     <entry file="file://$PROJECT_DIR$/src/Panel_generation.kt" />
-    <entry file="file://$PROJECT_DIR$/src/Value.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -579,19 +593,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.kt">
+    <entry file="file://$PROJECT_DIR$/src/Mass_creation.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#505#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Set.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
+        <state relative-caret-position="60">
           <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
           <folding>
             <element signature="e#0#66#0" expanded="true" />
@@ -599,12 +610,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mass_creation.kt">
+    <entry file="file://$PROJECT_DIR$/src/Value.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="89" column="30" selection-start-line="89" selection-start-column="30" selection-end-line="89" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#505#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Taking_position_game:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>10</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Taking_position_game</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>KotlinJavaRuntime</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
