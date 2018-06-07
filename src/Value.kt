@@ -3,4 +3,5 @@ object Value {
     var width = 0
     var temp = Array(12, {Array(12,{0})})
     var point: Array<Array<Int>> = temp
+    var turn = 1
 }

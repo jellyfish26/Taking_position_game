@@ -9,6 +9,7 @@ import javafx.scene.control.Alert
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
+import javafx.scene.layout.VBox
 import javafx.scene.paint.Color
 import javafx.scene.shape.Rectangle
 import javafx.scene.text.Font
@@ -23,6 +24,7 @@ class App : Application() {
     override fun start(primaryStage: Stage) {
         primaryStage.title = "Taking position game"
         primaryStage.scene = Scene(createContent())
+        //primaryStage.scene = Scene(turn(), 1000.0, 1000.0)
         primaryStage.show()
     }
 
@@ -50,11 +52,20 @@ class App : Application() {
         return pane
     }
 
+    private fun turn() : Parent {
+        var root = VBox(10.0)
+        var t = Text("turn: " + Value.turn)
+        root.children.add(t)
+
+        return root
+    }
+
     private inner class Tile(value: String) : StackPane() {
         private val text = Text()
 
+        var border = Rectangle(50.0, 50.0)
+
         init {
-            val border = Rectangle(50.0, 50.0)
             border.fill = null
             border.stroke = Color.BLACK
 
@@ -69,6 +80,14 @@ class App : Application() {
         }
 
         fun handleMouseClick(event: MouseEvent) {
+            if(Value.turn == 1 || Value.turn == 2) {
+                border.fill = Color.AQUA
+                ++Value.turn
+            } else {
+                border.fill = Color.FIREBRICK
+                ++Value.turn
+            }
+            if(Value.turn == 5) Value.turn = 1
             if(Debug.developer) println(event)
         }
     }
