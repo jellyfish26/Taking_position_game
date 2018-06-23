@@ -19,6 +19,7 @@ import kotlin.system.exitProcess
 
 class App : Application() {
     private var row = 0
+    var temp = 0
 
     @Throws(Exception::class)
     override fun start(primaryStage: Stage) {
@@ -60,14 +61,18 @@ class App : Application() {
         return root
     }
 
+    //tile setting
     private inner class Tile(value: String) : StackPane() {
         private val text = Text()
 
         var border = Rectangle(50.0, 50.0)
 
         init {
+            var number = temp
             border.fill = null
             border.stroke = Color.BLACK
+
+            ++temp
 
             text.text = value
             text.font = Font.font(25.0)
@@ -75,19 +80,36 @@ class App : Application() {
             alignment = Pos.CENTER
             children.addAll(border, text)
 
-            // onMouseClicked = EventHandler<MouseEvent>  { this.handleMouseClick(it) }
-            onMouseClicked = EventHandler { this.handleMouseClick(it) }
+            if(!Debug.input) onMouseClicked = EventHandler { this.handleMouseClick(it, number) }
         }
 
-        fun handleMouseClick(event: MouseEvent) {
-            if(Value.turn == 1 || Value.turn == 2) {
-                border.fill = Color.AQUA
-                ++Value.turn
-            } else {
-                border.fill = Color.FIREBRICK
-                ++Value.turn
+        //click setting
+        fun handleMouseClick(event: MouseEvent, number: Int) {
+            println(number)
+            println(Value.panel[(number / Value.width)][number % Value.width])
+            //turn
+            when(Value.turn) {
+                1, 2 -> {
+                    if(Value.panel[(number / Value.width)][number % Value.width] == 0) {
+                        border.fill = Color.AQUA
+                        ++Value.turn
+                        Value.panel[(number / Value.width)][number % Value.width] = 1
+                    } else {
+                        Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "You are selecting a panel painted in color.")
+                    }
+                }
+                3, 4 -> {
+                    if(Value.panel[(number / Value.width)][number % Value.width] == 0) {
+                        border.fill = Color.FIREBRICK
+                        ++Value.turn
+                        Value.panel[(number / Value.width)][number % Value.width] = 2
+                    } else {
+                        Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "You are selecting a panel painted in color.")
+                    }
+                }
             }
-            if(Value.turn == 5) Value.turn = 1
+
+            if(Value.turn == 5) Value.turn = 1 // roop
             if(Debug.developer) println(event)
         }
     }
