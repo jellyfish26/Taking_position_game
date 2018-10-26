@@ -9,6 +9,7 @@ import javafx.scene.control.Alert
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.Pane
 import javafx.scene.layout.StackPane
+import javafx.scene.layout.VBox
 import javafx.scene.paint.Color
 import javafx.scene.shape.Rectangle
 import javafx.scene.text.Font
@@ -18,11 +19,13 @@ import kotlin.system.exitProcess
 
 class App : Application() {
     private var row = 0
+    var temp = 0
 
     @Throws(Exception::class)
     override fun start(primaryStage: Stage) {
         primaryStage.title = "Taking position game"
         primaryStage.scene = Scene(createContent())
+        //primaryStage.scene = Scene(turn(), 1000.0, 1000.0)
         primaryStage.show()
     }
 
@@ -30,7 +33,7 @@ class App : Application() {
         val pane = Pane()
         pane.setPrefSize(750.0, 750.0)
 
-        setting()
+        Set.setting()
         val tiles = ArrayList<Tile>()
         for(ver_length in 0 until Value.vertical) {
             for(wid_length in 0 until Value.width) {
@@ -50,62 +53,26 @@ class App : Application() {
         return pane
     }
 
-    private fun setting() {
+    private fun turn() : Parent {
+        var root = VBox(10.0)
+        var t = Text("turn: " + Value.turn)
+        root.children.add(t)
 
-        if(Debug.developer) println("Lunch App")
-        Value.vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
-        //check
-        while (true) {
-            if(Value.vertical == 0) {
-                Value.vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
-            } else break
-        }
-        Value.width = initialization("Please enter the number of width squares. (5 to 12)")
-
-        //check
-        while (true) {
-            if(Value.vertical == 0) {
-                Value.vertical = initialization("Please enter the number of vertical squares. (5 to 12)")
-            } else break
-        }
-
-        Mass_creation.create(Value.vertical, Value.width)
+        return root
     }
 
-    //Display a dialog for generating a square.
-    private fun initialization(content: String?): Int {
-
-        var number = -1
-
-        // Input dialog display
-        var resultsquare = Dialog.InputDialog(null, "Create square", content)
-
-        if (resultsquare == null) exitProcess(0) // End of program, No further processing is performed.
-
-        try {
-            number = resultsquare.toInt()
-
-            if (!(number >= 5 && number <= 12)) {
-                Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number between 5 and 13")
-                number = 0
-            }
-
-        } catch (e: NumberFormatException) {
-            Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "Please enter a number (5 to 12)")
-            number = 0
-        }
-
-        if(Debug.developer) println(number)
-        return number //number == 0, false
-    }
-
+    //tile setting
     private inner class Tile(value: String) : StackPane() {
         private val text = Text()
 
+        var border = Rectangle(50.0, 50.0)
+
         init {
-            val border = Rectangle(50.0, 50.0)
+            var number = temp
             border.fill = null
             border.stroke = Color.BLACK
+
+            ++temp
 
             text.text = value
             text.font = Font.font(25.0)
@@ -113,11 +80,36 @@ class App : Application() {
             alignment = Pos.CENTER
             children.addAll(border, text)
 
-            // onMouseClicked = EventHandler<MouseEvent>  { this.handleMouseClick(it) }
-            onMouseClicked = EventHandler { this.handleMouseClick(it) }
+            if(!Debug.input) onMouseClicked = EventHandler { this.handleMouseClick(it, number) }
         }
 
-        fun handleMouseClick(event: MouseEvent) {
+        //click setting
+        fun handleMouseClick(event: MouseEvent, number: Int) {
+            println(number)
+            println(Value.panel[(number / Value.width)][number % Value.width])
+            //turn
+            when(Value.turn) {
+                1, 2 -> {
+                    if(Value.panel[(number / Value.width)][number % Value.width] == 0) {
+                        border.fill = Color.AQUA
+                        ++Value.turn
+                        Value.panel[(number / Value.width)][number % Value.width] = 1
+                    } else {
+                        Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "You are selecting a panel painted in color.")
+                    }
+                }
+                3, 4 -> {
+                    if(Value.panel[(number / Value.width)][number % Value.width] == 0) {
+                        border.fill = Color.FIREBRICK
+                        ++Value.turn
+                        Value.panel[(number / Value.width)][number % Value.width] = 2
+                    } else {
+                        Dialog.AlertDialog(Alert.AlertType.WARNING, null, "Warning", "You are selecting a panel painted in color.")
+                    }
+                }
+            }
+
+            if(Value.turn == 5) Value.turn = 1 // roop
             if(Debug.developer) println(event)
         }
     }

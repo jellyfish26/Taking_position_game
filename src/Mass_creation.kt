@@ -6,11 +6,12 @@ object Mass_creation {
         random(vertical, width)
     }
 
-    //odd even
+    //random number
     fun random(vertical: Int, width: Int) {
         for(ver_length in 0..((vertical / 2))) {
             for(wid_length in 0..((width / 2))) {
-                point[ver_length][wid_length] = Random().nextInt(32) - 16
+                //point[ver_length][wid_length] = Random().nextInt(32) - 16
+                point[ver_length][wid_length] = Random_number_generation()
 
                 // Line symmetry
                 point[vertical - ver_length - 1][width - wid_length - 1] = point[ver_length][wid_length]
@@ -28,5 +29,15 @@ object Mass_creation {
                 println()
             }
         }
+    }
+
+    fun Random_number_generation() : Int{
+        var multiplied = Random().nextInt(6) - 1
+        if(multiplied >= 0) {
+            multiplied = 1
+        }
+        var return_number = Random().nextInt(16) * multiplied
+
+        return return_number
     }
 }
