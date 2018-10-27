@@ -18,6 +18,7 @@ import javafx.stage.Stage
 import kotlin.system.exitProcess
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import javafx.scene.input.MouseButton
 import java.io.File
 
 class App : Application() {
@@ -100,7 +101,21 @@ class App : Application() {
         fun handleMouseClick(event: MouseEvent, number: Int) {
             println(number)
             println(Value.panel[(number / Value.width)][number % Value.width])
+            if (event.button == MouseButton.PRIMARY) {
+                if (border.fill == Color.AQUA) {
+                    border.fill = null
+                } else {
+                    border.fill = Color.AQUA
+                }
+            } else if (event.button == MouseButton.SECONDARY) {
+                if (border.fill == Color.FIREBRICK) {
+                    border.fill = null
+                } else {
+                    border.fill = Color.FIREBRICK
+                }
+            }
             //turn
+            /*
             when(Value.turn) {
                 1, 2 -> {
                     if(Value.panel[(number / Value.width)][number % Value.width] == 0) {
@@ -121,8 +136,9 @@ class App : Application() {
                     }
                 }
             }
+            */
 
-            if(Value.turn == 5) Value.turn = 1 // roop
+            // if(Value.turn == 5) Value.turn = 1 // roop
             if(Debug.developer) println(event)
         }
     }
