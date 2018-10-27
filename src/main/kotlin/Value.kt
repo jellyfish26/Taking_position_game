@@ -6,4 +6,5 @@ object Value {
     var temp2 = Array(12, {Array(12,{0})})
     var panel: Array<Array<Int>> = temp2
     var turn = 1
+    var json: String = ""
 }

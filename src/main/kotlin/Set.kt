@@ -1,5 +1,6 @@
 import javafx.scene.control.Alert
 import kotlin.system.exitProcess
+import java.*
 
 object Set {
     open fun setting() {

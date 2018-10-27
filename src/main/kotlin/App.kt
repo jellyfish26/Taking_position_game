@@ -16,6 +16,9 @@ import javafx.scene.text.Font
 import javafx.scene.text.Text
 import javafx.stage.Stage
 import kotlin.system.exitProcess
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
+import java.io.File
 
 class App : Application() {
     private var row = 0
@@ -33,7 +36,17 @@ class App : Application() {
         val pane = Pane()
         pane.setPrefSize(750.0, 750.0)
 
-        Set.setting()
+        // Set.setting()
+        var file = File("/home/jellyfish/IdeaProjects/TakingPositionGame/src/main/kotlin/qr.json")
+        Value.json = file.readText(Charsets.UTF_8)
+        val mapper = jacksonObjectMapper()
+        val json = mapper.readValue<Json>(Value.json)
+        Value.vertical = json.length.vertical
+        Value.width = json.length.width
+        println(json.position.agent1Position)
+        println(json.position.agent2Position)
+        Value.point = json.point
+
         val tiles = ArrayList<Tile>()
         for(ver_length in 0 until Value.vertical) {
             for(wid_length in 0 until Value.width) {
